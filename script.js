@@ -24,3 +24,30 @@ function possibleValidMoves([x, y]) {
   }
   return possibleMoves;
 }
+
+function knightTravails(start, end) {
+  // saves the queue and current positions
+  let queue = [[start, [start]]];
+
+  let visited = new Set();
+
+  while (queue.length > 0) {
+    let [current, pathSoFar] = queue.shift();
+    let setKey = current.toString();
+
+    if (setKey === end.toString()) {
+      return pathSoFar;
+    }
+
+    if (!visited.has(setKey)) {
+      visited.add(key);
+
+      const nextMove = possibleValidMoves(current);
+
+      for (let move of nextMove) {
+        //sets new current for next loop and added the new current to the pathSoFar
+        queue.push([move], [...pathSoFar, move]);
+      }
+    }
+  }
+}
