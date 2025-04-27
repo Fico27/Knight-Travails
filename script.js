@@ -40,13 +40,13 @@ function knightTravails(start, end) {
     }
 
     if (!visited.has(setKey)) {
-      visited.add(key);
+      visited.add(setKey);
 
       const nextMove = possibleValidMoves(current);
 
       for (let move of nextMove) {
         //sets new current for next loop and added the new current to the pathSoFar
-        queue.push([move], [...pathSoFar, move]);
+        queue.push([move, [...pathSoFar, move]]);
       }
     }
   }
